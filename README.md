@@ -18,9 +18,10 @@ plugins:[
   new ReactSSRRequest()
 ]
 ```
+执行build后会生成router-config.json文件
+
 
 ### 需要首次加载的组件
-### 注意 initialRequest必须包裹在最外层
 ```
 import React,{Component} from 'react';
 import {initialRequest} from 'react-ssr-request';
@@ -35,11 +36,14 @@ class Home extends Component{
 const initialDispatchs=(state)=>[
   Acts.get(1),
 ]
-export default initialRequest(Home)
+export default initialRequest(initialDispatchs)(Home)
 ```
+### 注意 initialRequest必须包裹在最外层
+例如
+`initialRequest(initialDispatchs)(connect(...)(Home))`
 
 
-执行build后会生成router-config.json文件
+
 
 ### 服务端
 ```
