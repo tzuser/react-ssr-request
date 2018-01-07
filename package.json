@@ -1,0 +1,31 @@
+{
+  "name": "react-ssr-request",
+  "version": "1.0.7",
+  "description": "Server-Side React Rendering. Request data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzuser/react-ssr-request.git"
+  },
+  "peerDependencies": {
+    "react": "0.14 || 15 || 16"
+  },
+  "keywords": [
+    "react",
+    "ssr",
+    "request"
+  ],
+  "author": "tangzuo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tzuser/react-ssr-request/issues"
+  },
+  "homepage": "https://github.com/tzuser/react-ssr-request#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-router-config": "^1.0.0-beta.4"
+  }
+}
