@@ -16,7 +16,8 @@ class ReactSSRRequestPlugin {
     this.context = ''; //context地址
   }
   apply(compiler) {
-    this.context = compiler.options.context;
+    this.include=this.context = compiler.options.context;
+
     compiler.plugin("compilation", (compilation) => {
       compilation.plugin("optimize", () => {
         let currTree = this.getTree(compilation)
@@ -49,6 +50,10 @@ class ReactSSRRequestPlugin {
         if (!this.record[item.node]) {
           let parents = this.getParent(tree, [item])
           let routes = this.getParentRoutes(parents, item.file);
+          if(routes.length==0 ){
+            console.log(parents,'app',item);
+            routes={path: '/',loader: item.node,request: item.file}
+          }
           this.initals = this.initals.concat(routes);
           this.record[item.node] = true;
         }
