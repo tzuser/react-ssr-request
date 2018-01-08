@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-request",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Server-Side React Rendering. Request data",
   "main": "index.js",
   "scripts": {

@@ -131,15 +131,21 @@ class MyPlugin {
   }
  
   getRoute(moduleSource,pathStr){
-   //module.issuer 父级
+//module.issuer 父级
      let pathRe=pathStr.replace(/\./g,'\\.')
      pathRe=pathRe.replace(/\//g,'\\/')
      pathRe=pathRe.replace(/\:/g,'\\:')
 
-     let re=new RegExp(`var (\\w+) =[^=]*?${pathRe}`,"m");
+     let re=new RegExp(`var (\\w+) =[^=^\;]*?${pathRe}`,"m");
      let reName=re.exec(moduleSource)
      if(reName)reName=reName[1];
-     let re2=new RegExp(`(\{ [exact|path]+\:[^\}]+? component\: ${reName} \})`,"gm");
+     //直接引用处理
+     let re3=new RegExp(`var (\\w+) =[^=^\;]*?${reName}`,"m");
+     let re3Name=re3.exec(moduleSource)
+     if(re3Name){
+            reName= re3Name[1]
+     }
+     let re2=new RegExp(`(\{ [exact|path]+\:[^\}]+? component\: ${reName}[\.default]* \})`,"gm");
      let reObj;
      let resList=[];
      while(reObj=re2.exec(moduleSource)){
