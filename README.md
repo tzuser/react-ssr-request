@@ -6,6 +6,8 @@
 npm install --save react-ssr-request
 
 ```
+## 使用演示
+[https://github.com/tzuser/ssr](https://github.com/tzuser/ssr)
 
 ## 使用说明
 
