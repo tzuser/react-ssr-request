@@ -1,11 +1,13 @@
-import { matchRoutes } from 'react-router-config';
-
+import { matchPath } from 'react-router';
 const initalRequest=async (store,url,config)=>{
-	let branch=matchRoutes(config,url);
+	let branch=[];
+	config.map(item=>{
+		let route=matchPath(url,item)
+		if(route)branch.push(item)
+	})
 	let promises=[];
 	for(let i in branch){
-		let route=branch[i].route;
-
+		let route=branch[i];
 		if(route.request){
 			let comp=require(route.request);
       		let initialDispatchs=comp.initialDispatchs

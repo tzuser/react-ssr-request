@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _reactRouterConfig = require('react-router-config');
+var _reactRouter = require('react-router');
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
@@ -15,12 +15,16 @@ var initalRequest = function () {
 			while (1) {
 				switch (_context.prev = _context.next) {
 					case 0:
-						branch = (0, _reactRouterConfig.matchRoutes)(config, url);
+						branch = [];
+
+						config.map(function (item) {
+							var route = (0, _reactRouter.matchPath)(url, item);
+							if (route) branch.push(item);
+						});
 						promises = [];
 
 						for (i in branch) {
-							route = branch[i].route;
-
+							route = branch[i];
 
 							if (route.request) {
 								comp = require(route.request);
@@ -38,12 +42,12 @@ var initalRequest = function () {
 								}
 							}
 						}
-						_context.next = 5;
+						_context.next = 6;
 						return Promise.all(promises).catch(function (err) {
 							return console.log('initialRequest:ERROR', err);
 						});
 
-					case 5:
+					case 6:
 					case 'end':
 						return _context.stop();
 				}

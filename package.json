@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-request",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "description": "Server-Side React Rendering. Request data",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,6 @@
   "homepage": "https://github.com/tzuser/react-ssr-request#readme",
   "dependencies": {
     "react": "^16.2.0",
-    "react-router-config": "^1.0.0-beta.4"
+    "react-router": "^4.2.0"
   }
 }
