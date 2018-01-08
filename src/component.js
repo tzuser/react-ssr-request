@@ -50,7 +50,7 @@ var initialRequest = function initialRequest(initialDispatchs) {
 			}, {
 				key: 'render',
 				value: function render() {
-					return _react2.default.createElement(WrappedComponent, _extends({}, this.props, { initialDispatchs: this.getData }));
+					return _react2.default.createElement(WrappedComponent, _extends({}, this.props, { sendRequest: this.getData.bind(this) }));
 				}
 			}]);
 

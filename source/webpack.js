@@ -51,7 +51,6 @@ class ReactSSRRequestPlugin {
           let parents = this.getParent(tree, [item])
           let routes = this.getParentRoutes(parents, item.file);
           if(routes.length==0 ){
-            console.log(parents,'app',item);
             routes={path: '/',loader: item.node,request: item.file}
           }
           this.initals = this.initals.concat(routes);

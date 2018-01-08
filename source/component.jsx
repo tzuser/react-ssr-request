@@ -10,7 +10,7 @@ const initialRequest=(initialDispatchs)=>WrappedComponent=>{
 			})
 		}
 		render() {
-		     return <WrappedComponent {...this.props} initialDispatchs={this.getData} />
+		     return <WrappedComponent {...this.props} sendRequest={this.getData.bind(this)} />
 		}
 	}
 	InitComponent.contextTypes={ store: PropTypes.object.isRequired }
