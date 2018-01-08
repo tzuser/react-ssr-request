@@ -8,17 +8,6 @@ npm install --save react-ssr-request
 ```
 
 ## 使用说明
-在webpack发布环境的配置文件里引用插件
-
-`const ReactSSRRequest =require('react-ssr-request/webpack');`
-
-添加插件
-```
-plugins:[
-  new ReactSSRRequest()
-]
-```
-执行build后会生成router-config.json文件
 
 
 ### 需要首次加载的组件
@@ -41,6 +30,21 @@ export default initialRequest(initialDispatchs)(Home)
 ### 注意 initialRequest必须包裹在最外层
 例如
 `initialRequest(initialDispatchs)(connect(...)(Home))`
+
+
+
+### 在webpack发布环境的配置文件里引用插件
+
+`const ReactSSRRequest =require('react-ssr-request/webpack');`
+
+添加插件
+```
+plugins:[
+  new ReactSSRRequest()
+]
+```
+添加组件后执行build后会生成router-config.json文件
+
 
 
 
