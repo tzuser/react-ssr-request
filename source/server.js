@@ -5,10 +5,13 @@ const initalRequest=async (store,url,config)=>{
 	let promises=[];
 	for(let i in branch){
 		let route=branch[i].route;
+
 		if(route.request){
 			let comp=require(route.request);
-			if(comp && comp.initialDispatchs){
-				let actList=comp.initialDispatchs(store.getState());
+      		let initialDispatchs=comp.initialDispatchs
+			if(!initialDispatchs && comp.default){initialDispatchs=comp.default.initialDispatchs}
+			if(comp && initialDispatchs){
+				let actList=initialDispatchs(store.getState());
 				actList.map(item=>{
 					promises.push(store.dispatch(item));
 				})

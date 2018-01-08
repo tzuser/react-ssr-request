@@ -10,7 +10,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var initalRequest = function () {
 	var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(store, url, config) {
-		var branch, promises, i, route, comp, actList;
+		var branch, promises, i, route, comp, initialDispatchs, actList;
 		return regeneratorRuntime.wrap(function _callee$(_context) {
 			while (1) {
 				switch (_context.prev = _context.next) {
@@ -21,11 +21,16 @@ var initalRequest = function () {
 						for (i in branch) {
 							route = branch[i].route;
 
+
 							if (route.request) {
 								comp = require(route.request);
+								initialDispatchs = comp.initialDispatchs;
 
-								if (comp && comp.initialDispatchs) {
-									actList = comp.initialDispatchs(store.getState());
+								if (!initialDispatchs && comp.default) {
+									initialDispatchs = comp.default.initialDispatchs;
+								}
+								if (comp && initialDispatchs) {
+									actList = initialDispatchs(store.getState());
 
 									actList.map(function (item) {
 										promises.push(store.dispatch(item));
