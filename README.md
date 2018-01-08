@@ -27,11 +27,6 @@ const initialDispatchs=(state)=>[
 ]
 export default initialRequest(initialDispatchs)(Home)
 ```
-### 注意 initialRequest必须包裹在最外层
-例如
-`initialRequest(initialDispatchs)(connect(...)(Home))`
-
-
 
 ### 在webpack发布环境的配置文件里引用插件
 
