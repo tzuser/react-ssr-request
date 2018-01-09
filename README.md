@@ -1,4 +1,4 @@
-# React-Inital-Request 针对Router4服务端渲染首次加载数据
+# react-ssr-request 针对Router4服务端渲染首次加载数据
 
 
 ## 安装
