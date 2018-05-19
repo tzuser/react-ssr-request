@@ -1,4 +1,4 @@
-# 已弃用
+# 已弃用 改用[fetch-initial-data](https://github.com/tzuser/fetch-initial-data)
 # react-ssr-request 针对Router4服务端渲染首次加载数据
 
 
